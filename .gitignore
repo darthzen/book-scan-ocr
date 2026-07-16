@@ -1,0 +1,16 @@
+# Ignore everything by default, so swapped-in scanned book folders and
+# generated artifacts are never accidentally committed.
+*
+
+# --- Track the tool and its docs ---
+!.gitignore
+!README.md
+!ocr_books.py
+!requirements.txt
+!Dockerfile
+
+# --- Let `entire enable` manage its own artifacts / agent hooks ---
+# For a darthzen sync these stay committed; for any other remote use
+# `entire enable --local` (writes gitignored settings.local.json).
+!.entire/
+!.claude/
