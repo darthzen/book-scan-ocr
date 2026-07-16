@@ -1,16 +1,20 @@
-# Ignore everything by default, so swapped-in scanned book folders and
-# generated artifacts are never accidentally committed.
-*
+# Generated artifacts
+_output/
+_cache/
+__pycache__/
+*.pyc
 
-# --- Track the tool and its docs ---
-!.gitignore
-!README.md
-!ocr_books.py
-!requirements.txt
-!Dockerfile
+# macOS
+.DS_Store
 
-# --- Let `entire enable` manage its own artifacts / agent hooks ---
-# For a darthzen sync these stay committed; for any other remote use
-# `entire enable --local` (writes gitignored settings.local.json).
-!.entire/
-!.claude/
+# Scanned page images (large, copyrighted). Book folders are folders of images,
+# so ignoring the images keeps every book folder out of the repo while staying
+# robust to swapping books in and out. entire/ and .claude/ config are NOT
+# ignored, so they track per the darthzen sync policy.
+*.jpg
+*.jpeg
+*.png
+*.tif
+*.tiff
+*.webp
+*.bmp
